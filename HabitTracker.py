@@ -1,5 +1,14 @@
+import json
+import os
+
 print("📝 Welcome to your Personal Habit Tracker!")
-habits = []
+
+# ---------- Load habits if file exists ----------
+if os.path.exists("habits.json"):
+    with open("habits.json", "r") as f:
+        habits = json.load(f)
+else:
+    habits = []
 while True:
     habit = input("Enter a habit to track (or type 'done' when finished): ")
     if habit.lower() == 'done':
